@@ -10,3 +10,4 @@
 * ``String peekMin()`` O(n)
 * ``String removeMin()`` O(n)
 * ``String toString()`` O(n)
+* ``int size()`` O(1)
