@@ -17,7 +17,6 @@ public class ArrayPriorityQueue implements PriorityQueue{
 
     public ArrayPriorityQueue(){
 	queue = new ArrayList<String>();
-	size = 0;
     }
 
     //enqueues value to the end of the array (back of queue)
@@ -28,7 +27,7 @@ public class ArrayPriorityQueue implements PriorityQueue{
 
     //O(1)
     public boolean isEmpty(){
-	return size == 0;
+	return queue.size() == 0;
     }
 
     //O(1)
