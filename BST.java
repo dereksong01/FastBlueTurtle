@@ -1,11 +1,15 @@
+/*====================================
+So what we still need is a way for the remove() method to remove a node who has 2 non-leaf children
 
+
+=====================================*/
 
 /*****************************************************
  * class BST - v1:partial
  * Implementation of the BINARY SEARCH TREE abstract data type (ADT)
  *
  * A BST maintains the invariant that, for any node N with value V,
- * L<V && V<R, where L and R are node values in N's left and right
+ * LV && VR, where L and R are node values in N's left and right
  * subtrees, respectively.
  * (Any value in a node's left subtree must be less than its value,
  *  and any value in its right subtree must be greater.)
@@ -16,12 +20,12 @@ public class BST
 {
 
     //instance variables / attributes of a BST:
-    TreeNode _root;
+    private TreeNode _root;
 
     /*****************************************************
      * default constructor
      *****************************************************/
-    BST( )
+    public BST( )
     {
 	_root = null;
     }
