@@ -11,3 +11,11 @@
 * ``String removeMin()`` O(n)
 * ``String toString()`` O(n)
 * ``int size()`` O(1)
+
+## Heap Todo 
+1. ``add()`` 
+	
+2. ``removeMin()``
+3. ``peekMin()``
+4. ``minOf()``
+5. ``minChildPos()``
