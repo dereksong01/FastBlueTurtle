@@ -1,4 +1,4 @@
-//John Liu
+//John Liu, Derek Song, Alan Wang, Alvin Ye
 //APCS2 pd8
 //HW #49: Sink || Swim
 //2018-05-16
@@ -41,7 +41,7 @@ public class ALHeap
 	}
 	str+="]";
 	return str;
-    }//O(?)
+    }//O(n)
 
 
     /*****************************************************
@@ -51,7 +51,7 @@ public class ALHeap
     public boolean isEmpty()
     {
 	return _heap.size()-1==0;
-    }//O(?)
+    }//O(1)
 
 
     /*****************************************************
@@ -65,7 +65,7 @@ public class ALHeap
 	    return null;
 	}
 	return _heap.get(1);
-    }//O(?)
+    }//O(1)
 
 
     /*****************************************************
@@ -78,7 +78,7 @@ public class ALHeap
 	_heap.add(addVal);
 	int i=_heap.size()-1;
 	while(i>1){
-	    if(_heap.get(i)<_heap.get(i/2)){
+	    if(_heap.get(i)<_heap.get(i/2)){ //get(i/2) finds parent index 
 	        swap(i,i/2);
 		i/=2;
 	    }
@@ -86,7 +86,7 @@ public class ALHeap
 		return;
 	    }
 	}
-    }//O(?)
+    }//O(logn)
 
 
     /*****************************************************
