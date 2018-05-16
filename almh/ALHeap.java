@@ -31,11 +31,11 @@ public class ALHeap
   public String toString() 
   { 
     //temporary
-    String retVal = "[";
+    String retVal = "[ ";
     for(int i = 0; i < _heap.size(); i++){
       retVal += _heap.get(i) + ",";
     }
-    return retVal + "]";
+    return retVal.substring(0, retVal.length() - 1) + "]";
   }//O(?)
 
 
@@ -56,6 +56,10 @@ public class ALHeap
    *****************************************************/
   public Integer peekMin()
   { 
+    if(_heap.size() == 0){
+      return - 1;
+    }
+
     Integer min = _heap.get(0);
     for(int i = 0; i < _heap.size(); i++){
       if(_heap.get(i) < min){
@@ -73,14 +77,17 @@ public class ALHeap
    *****************************************************/
   public void add( Integer addVal )
   { 
-    if(_heap.size() == 0){
+    if(_heap.size() == 0 || _heap.get(_heap.size() - 1) < addVal){
       _heap.add(addVal);
     }
-
+    else if(_heap.get(0) > addVal){
+      _heap.add(0, addVal);
+    }
     else{
       for(int i = 0; i < _heap.size() - 1; i++){
-        if(_heap.get(i) < addVal && _heap.get(i + 1) > addVal){
+        if(_heap.get(i) < addVal && _heap.get(i + 1) >= addVal){
           _heap.add(i + 1, addVal);
+          i++; //once you add, you shift elements down, so you best compensate for that
         }
       }
     }
@@ -97,7 +104,7 @@ public class ALHeap
   { 
     Integer retVal = peekMin();
 
-    if(minChildPos(0) == -1){
+    if(_heap.size() == 0){
       return null;
     }
 
@@ -117,7 +124,7 @@ public class ALHeap
   { 
     int retVal = 0;
 
-    if(_heap.size() == 0){
+    if(_heap.size() == 0 || pos < 0 || pos >= _heap.size()){
       return -1;
     }
 
