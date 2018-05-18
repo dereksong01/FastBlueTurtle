@@ -1,4 +1,4 @@
-//John Liu
+//FastBlueTurtles, John Liu, Derek Song, Alan Wang, Alvin Ye
 //APCS2 pd8
 //HW #50: Run Run Run
 //2018-05-18

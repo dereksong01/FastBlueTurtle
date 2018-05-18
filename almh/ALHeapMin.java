@@ -1,4 +1,4 @@
-//John Liu
+//FastBlueTurtles, John Liu, Derek Song, Alan Wang, Alvin Ye
 //APCS2 pd8
 //HW #50: Run Run Run
 //2018-05-18
@@ -77,8 +77,8 @@ public class ALHeapMin
 	_heap.add(addVal);
 	int i=_heap.size()-1;
 	while(i>1){
-	    if(_heap.get(i).compareTo(_heap.get(i/2))<0){
-	        swap(i,i/2);
+	    if(_heap.get(i).compareTo(_heap.get(i/2))<0){ //if child is less than parent
+	        swap(i,i/2); //swap child and parent
 		i/=2;
 	    }
 	    else{
@@ -98,11 +98,17 @@ public class ALHeapMin
 	if(isEmpty()){
 	    return null;
 	}
+
+	//size 2 heap is the smallest minheap (index 0 is null)
 	else if(_heap.size()==2){
 	    return _heap.remove(1);
 	}
 	else{
+		//removes the last node and sets it to the root
 	    Integer val=_heap.set(1, _heap.remove(_heap.size()-1));
+
+	    //while the root has a lesser child (not a leaf), swap the root with the child
+	    //keep going down the heap until you reach a leaf 
 	    int i=1;
 	    while(minChildPos(i)!=-1){
 		int j=minChildPos(i);
@@ -127,12 +133,16 @@ public class ALHeapMin
      *****************************************************/
     private int minChildPos( int pos )
     {
-	if(_heap.size()-1<2*pos){
+
+    //if the parent has no child (if the heap size is less than the left child's position (2n))
+	if(_heap.size()-1 < 2*pos){
 	    return -1;
 	}
-	else if(_heap.size()-1<2*pos+1){
+	//if the parent has a left child but not a right child, return the index of left child
+	else if(_heap.size()-1 < 2*pos+1){
 	    return 2*pos;
 	}
+	//if the parent has two children, return the position of the smaller child
 	else{
 	    if(_heap.get(2*pos).compareTo(_heap.get(2*pos+1))<0){
 		return 2*pos;
