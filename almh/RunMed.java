@@ -14,7 +14,6 @@ public class RunMed{
     }
 
     public Integer getMedian(){
-
     //if the min/max heaps are the same size, return mean of the roots
 	if(lilVals.size()==bigVals.size()){ 
 	    return (lilVals.peekMax()+bigVals.peekMin())/2;
@@ -36,14 +35,13 @@ public class RunMed{
 		return bigVals.peekMin();
 	    }
 	}
-    }
+    } //O(1)
 
 
     public void add(Integer newVal){
 	if(lilVals.isEmpty()){
 	    lilVals.add(newVal);
 	}
-
 	//to make sure that the roots of the heaps are the median:
 	//if newVal is greater than the max heap root, add a value to the max heap
 	//if newVal is less than the max heap root, add a value to the min heap
@@ -55,7 +53,6 @@ public class RunMed{
 		bigVals.add(newVal);
 	    }
 	}
-
 	//if the size difference between the heaps are greater than 1:
 	//remove and add the max or min value from the smaller heap to the larger heap
 	while(Math.abs(lilVals.size()-bigVals.size())>1){
